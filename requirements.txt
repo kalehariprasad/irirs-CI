@@ -1,0 +1,6 @@
+scikit-learn
+pandas
+seaborn
+matplotlib
+
+# .github/workflows/ci_cd.yml
