@@ -27,9 +27,7 @@ jobs:
       run: |
         python -m unittest discover
 
-    - name: Print Token
-      run: |
-        echo "REPO_TOKEN: ${{ secrets.newcode }}"
+    - 
 
     - name: Create CML report
       env:
