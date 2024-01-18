@@ -24,4 +24,19 @@ jobs:
     - name: Run main file
       run: |
         python main.py
- 
+    
+    - name: Run Tests
+      run: |
+        python -m unittest discover
+
+    
+
+    - name: Create CML report
+      env:
+        REPO_TOKEN: ${{ secrets.newcode }}
+      run: |
+        echo "# First Line of our report" >> report.md
+        echo "## Plots" >> report.md
+        echo '![](./confusion_matrix_plot.png "Bar plot")' >> report.md
+        cml comment create report.md "All jobs are running except the CML report step. It was showing 'Process completed with exit code 1.' The token is also printing."
+        
