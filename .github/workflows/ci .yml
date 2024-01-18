@@ -31,7 +31,7 @@ jobs:
 
     - name: Print Token
       run: |
-        echo "REPO_TOKEN: ${{ secrets.mycode1 }}"
+        echo "REPO_TOKEN: ${{ secrets.iriscode }}"
     
     - name: Create CML report
       env:
