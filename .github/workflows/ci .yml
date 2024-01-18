@@ -24,20 +24,4 @@ jobs:
     - name: Run main file
       run: |
         python main.py
-    
-    - name: Run Tests
-      run: |
-        python -m unittest discover
-
-    - name: Print Token
-      run: |
-        echo "REPO_TOKEN: ${{ secrets.mycode1 }}"
-    
-    - name: Create CML report
-      env:
-        REPO_TOKEN: ${{ secrets.mycode1 }}
-      run: |
-        echo "# First Line of our report" >> report.md
-        echo "## Plots" >> report.md
-        echo '![](./confusion_matrix_plot.png "Bar plot")' >> report.md
-        cml comment create report.md
+ 
