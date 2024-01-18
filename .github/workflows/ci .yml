@@ -1,5 +1,3 @@
-# .github/workflows/ci_cd.yml
-
 name: CI Pipeline
 
 on:
@@ -24,4 +22,21 @@ jobs:
     - name: Run main file
       run: |
         python main.py
- 
+    
+    - name: Run Tests
+      run: |
+        python -m unittest discover
+
+    - name: Print Token
+      run: |
+        echo "REPO_TOKEN: ${{ secrets.newcode }}"
+
+    - name: Create CML report
+      env:
+        REPO_TOKEN: ${{ secrets.newcode }}
+      run: |
+        echo "# First Line of our report" >> report.md
+        echo "## Plots" >> report.md
+        echo '![](./confusion_matrix_plot.png "Bar plot")' >> report.md
+        cml comment create report.md "All jobs are running except the CML report step. It was showing 'Process completed with exit code 1.' The token is also printing."
+        
