@@ -38,4 +38,4 @@ jobs:
         echo "# First Line of our report" >> report.md
         echo "## Plots" >> report.md
         echo '![](./confusion_matrix_plot.png "Bar plot")' >> report.md
-        cml create report.md
+        cml publish report.md
