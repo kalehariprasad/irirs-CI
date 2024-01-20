@@ -24,16 +24,15 @@ jobs:
       run: |
         python main.py
     
-    - name: Display Confusion Matrix
+    - name: Run Tests
       run: |
-        python main.py  # Re-run the script to generate the confusion matrix plot
-      continue-on-error: true
-    
+        python -m unittest discover
+
     - name: Create CML report
       env:
         REPO_TOKEN: ${{ secrets.newcode }}
       run: |
         echo "# First Line of our report" >> report.md
         echo "## Plots" >> report.md
-        echo '![](./confusion_matrix_plot.png "Bar plot")' >> report.md
+        echo '![](./confusion_matrix_plot.png "Confusion Matrix")' >> report.md
         cml publish report.md
