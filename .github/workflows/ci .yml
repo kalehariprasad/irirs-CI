@@ -28,10 +28,12 @@ jobs:
 
     - name: Save Confusion Matrix Plot
       run: |
-        mv confusion_matrix_plot.png ${{ github.workspace }}/outputs/
+        mv confusion_matrix_plot.png /home/runner/work/iris-CI/iris-CI/outputs/
 
     - name: Set up CML
       uses: iterative/setup-cml@v1
+      with:
+        github-token: ${{ secrets.AGSjgdasGDCbn }}
 
     - name: Create CML Report
       run: |
