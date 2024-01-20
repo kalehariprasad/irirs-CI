@@ -30,7 +30,7 @@ jobs:
 
     - name: Create CML report
       env:
-        REPO_TOKEN: ${{ secrets.irisci }}
+        REPO_TOKEN: ${{ secrets.AGSjgdasGDCbn }}
       run: |
         echo "# First Line of our report" >> report.md
         echo "## Plots" >> report.md
