@@ -28,6 +28,7 @@ jobs:
 
     - name: Save Confusion Matrix Plot
       run: |
+        mkdir -p /home/runner/work/iris-CI/iris-CI/outputs/
         mv confusion_matrix_plot.png /home/runner/work/iris-CI/iris-CI/outputs/
 
     - name: Set up CML
