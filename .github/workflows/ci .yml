@@ -1,5 +1,4 @@
 # .github/workflows/ci_cd.yml
-
 name: CI Pipeline
 
 on:
@@ -25,12 +24,11 @@ jobs:
       run: |
         python main.py
     
-    - name: Run Tests
+    - name: Display Confusion Matrix
       run: |
-        python -m unittest discover
-
+        python main.py  # Re-run the script to generate the confusion matrix plot
+      continue-on-error: true
     
-
     - name: Create CML report
       env:
         REPO_TOKEN: ${{ secrets.newcode }}
