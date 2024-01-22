@@ -39,4 +39,4 @@ jobs:
     - name: Create CML Report
       run: |
         cml-publish confusion_matrix_plot.png --md >> report.md
-        cml-send-comment report.md
+        cml publish report.md
