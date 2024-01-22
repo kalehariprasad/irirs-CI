@@ -1,42 +1,41 @@
-name: Generate CML Report
+# .github/workflows/ci_cd.yml
+
+name: CI Pipeline
 
 on:
   push:
-    branches:
-      - main  # Change to your main branch name if different
 
 jobs:
-  generate_report:
+  build:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout Repository
-      uses: actions/checkout@v2
-
-    - name: Set up Python
-      uses: actions/setup-python@v2
+    - uses: actions/checkout@v3
+    - uses: actions/setup-python@v4
       with:
-        python-version: 3.8
-
+        python-version: 3.11
+    - uses: iterative/setup-cml@v2
+    
     - name: Install Dependencies
       run: |
-        pip install -r requirements.txt  # Replace with the actual name of your requirements file if any
-
-    - name: Run Logistic Regression and Generate Confusion Matrix
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+    
+    - name: Run main file
       run: |
-        python main.py  # Replace with the actual name of your Python script
-
-    - name: Save Confusion Matrix Plot
+        python main.py
+    
+    - name: Run Tests
       run: |
-        mkdir -p /home/runner/work/iris-CI/iris-CI/outputs/
-        mv confusion_matrix_plot.png /home/runner/work/iris-CI/iris-CI/outputs/
+        python -m unittest discover
 
-    - name: Set up CML
-      uses: iterative/setup-cml@v1
-      with:
-        github-token: ${{ secrets.gfghdFGHDTGDbjvhd }}
-
-    - name: Create CML Report
+    
+    
+    - name: Create CML report
+      env:
+        REPO_TOKEN: ${{ secrets.gfghdFGHDTGDbjvhd }}
       run: |
-        cml-publish confusion_matrix_plot.png --md >> report.md
+        echo "# First Line of our report" >> report.md
+        echo "## Plots" >> report.md
+        echo '![](./confusion_matrix_plot.png "Bar plot")' >> report.md
         cml publish report.md
