@@ -34,7 +34,7 @@ jobs:
     - name: Set up CML
       uses: iterative/setup-cml@v1
       with:
-        github-token: ${{ secrets.AGSjgdasGDCbn }}
+        github-token: ${{ secrets.gfghdFGHDTGDbjvhd }}
 
     - name: Create CML Report
       run: |
