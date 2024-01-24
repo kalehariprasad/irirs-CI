@@ -1,0 +1,5 @@
+[core]
+    remote = storage
+['remote "storage"']
+    url = 1Yts8JRH6dabCQ7txPnfWCK66JfDncCp2
+   
