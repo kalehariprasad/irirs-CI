@@ -29,7 +29,9 @@ jobs:
       run: |
         python -m unittest discover
 
-    
+    - name: Debug
+      run: |
+        ls -R
     
     - name: Create CML report
       env:
@@ -37,5 +39,5 @@ jobs:
       run: |
         echo "# First Line of our report" >> report.md
         echo "## Plots" >> report.md
-        echo '![](\${GITHUB_WORKSPACE}/confusion_matrix_plot.png "Bar plot")' >> report.md
+        echo "![](\${GITHUB_WORKSPACE}/confusion_matrix_plot.png "Bar plot")" >> report.md
         cml publish report.md
