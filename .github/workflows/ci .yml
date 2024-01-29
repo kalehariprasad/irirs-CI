@@ -42,6 +42,7 @@ jobs:
       run: |
         echo "# First Line of our report" >> report.md
         echo "## Plots" >> report.md
+         echo "![](./onfusion_matrix_plot.png)" >> report.md
         echo "![Bar plot](${GITHUB_WORKSPACE}/confusion_matrix_plot.png 'Bar plot')" >> report.md
 
         # Publish the CML report
