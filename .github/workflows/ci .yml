@@ -38,7 +38,7 @@ jobs:
 
     - name: Create CML report
       env:
-        REPO_TOKEN: ${{ secrets.fghadut8oUYUDTYSHHGHTYWTghdrea }}
+        REPO_TOKEN: ${{ secrets.HffdjjfsgnGhjan }}
       run: |
         echo "# First Line of our report" >> report.md
         echo "## Plots" >> report.md
